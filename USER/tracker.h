@@ -5,3 +5,5 @@
 
 void Lane_Counter_Fwd_Init(void); //??????
 void Lane_Coutner_Back_Init(void);
+void Lane_Keep(void);
+void Lane_Counter_Fwd_Read(void);

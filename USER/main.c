@@ -5,6 +5,7 @@
 #include "usart.h"
 #include "timer.h"
 #include "tracker.h"
+#include "motor.h"
 /************************************************
  ALIENTEK精英STM32开发板实验9
  PWM输出实验
@@ -18,7 +19,7 @@
 int main(void)
 {
 	u16 led0pwmval = 0;
-	u8 dir = 1;
+	//u8 dir = 1;
 	delay_init();									// 延时函数初始化
 	Lane_Counter_Fwd_Init();
 	Lane_Coutner_Back_Init();
@@ -30,17 +31,6 @@ int main(void)
 
 	while (1)
 	{
-		
-//		delay_ms(10);
-//		if (dir)
-//			led0pwmval++;
-//		else
-//			led0pwmval--;
-
-//		if (led0pwmval > 300)
-//			dir = 0;
-//		if (led0pwmval == 0)
-//			dir = 1;
 		TIM_SetCompare2(TIM3, 450);
 		TIM_SetCompare1(TIM3, 450);
 	}
