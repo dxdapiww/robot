@@ -2,7 +2,8 @@
 #include "led.h"
 #include "usart.h"
 #include "tracker.h"
-
+u8 SensorB[8] = {0};
+u8 SensorA[8] = {0};
 u8 weight[8] = {-20,-15,-10,-5,5,10,15,20};
 void Lane_Counter_Fwd_Init(void)//前循迹GPIO初始化
 {
@@ -100,7 +101,6 @@ void Lane_Coutner_Back_Init(void)//后循迹GPIO初始化
 
 void Lane_Counter_Fwd_Read(void) // 前循迹
 {
-	u8 SensorA[8] = {0};
 	SensorA[0] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4);
 	SensorA[1] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_5);
 	SensorA[2] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_6);
@@ -113,7 +113,6 @@ void Lane_Counter_Fwd_Read(void) // 前循迹
 
 void Lane_Counter_Back_Read(void)//后循迹
 {
-	u8 SensorB[8] = {0};
 	SensorB[0] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_13);
 	SensorB[1] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_14);
 	SensorB[2] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_15);
@@ -123,6 +122,21 @@ void Lane_Counter_Back_Read(void)//后循迹
 	SensorB[6] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11);
 	SensorB[7] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_12);
 }
-void Lane_Keep(void)
+void Lane_Keep_Fwd(void)
 {
+	while(1)
+	{
+		u32 error = SensorA[0]*weight[0]+SensorA[1]*weight[1]+SensorA[2]*weight[2]+SensorA[3]*weight[3]+
+					SensorA[4]*weight[4]+SensorA[5]*weight[5]+SensorA[6]*weight[6]+SensorA[7]*weight[7];
+		if(!error) break;
+		if(error<0)
+		{
+
+		}
+		else if(error>0)
+		{
+			
+		}
+	}
+	//stop
 }
