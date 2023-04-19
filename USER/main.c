@@ -6,6 +6,7 @@
 #include "timer.h"
 #include "tracker.h"
 #include "motor.h"
+#include "pid.h"
 /************************************************
  ALIENTEK精英STM32开发板实验9
  PWM输出实验
