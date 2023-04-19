@@ -1,4 +1,5 @@
 ..\obj\tracker.o: tracker.c
+..\obj\tracker.o: tracker.h
 ..\obj\tracker.o: ..\HARDWARE\TIMER\timer.h
 ..\obj\tracker.o: ..\SYSTEM\sys\sys.h
 ..\obj\tracker.o: ..\USER\stm32f10x.h
@@ -33,4 +34,4 @@
 ..\obj\tracker.o: ..\HARDWARE\LED\led.h
 ..\obj\tracker.o: ..\SYSTEM\usart\usart.h
 ..\obj\tracker.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\tracker.o: tracker.h
+..\obj\tracker.o: motor.h

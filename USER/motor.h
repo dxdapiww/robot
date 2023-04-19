@@ -11,8 +11,10 @@
 #define MOTOR_L 0.01f
 #define MOTOR_K 0.01f
 
-#define KP 0.5f
+#define KP 25.0f
 #define KI 0.1f
 #define KD 0.2f
 
 void Motor_Init(void);
+void Motor_Stop(void);
+void Motor_PWM(u32 left_speed,u32 right_speed);

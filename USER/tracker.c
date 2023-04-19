@@ -1,10 +1,10 @@
-#include "timer.h"
-#include "led.h"
-#include "usart.h"
 #include "tracker.h"
+#include "motor.h"
 u8 SensorB[8] = {0};
 u8 SensorA[8] = {0};
 s8 weight[8] = {-20, -15, -10, -5, 5, 10, 15, 20};
+extern u32 speed;
+u32 speed_L, speed_R;
 void Lane_Counter_Fwd_Init(void) // 前循迹GPIO初始化
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -112,6 +112,7 @@ void Lane_Counter_Fwd_Read(void) // 前循迹
 
 void Lane_Counter_Back_Read(void) // 后循迹
 {
+	
 	SensorB[0] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_13);
 	SensorB[1] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_14);
 	SensorB[2] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_15);
@@ -123,42 +124,46 @@ void Lane_Counter_Back_Read(void) // 后循迹
 }
 void Lane_Keep_Fwd(void)
 {
-	while (1)
-	{
-		s32 error = SensorA[0] * weight[0] + SensorA[1] * weight[1] + SensorA[2] * weight[2] + SensorA[3] * weight[3] +
-					SensorA[4] * weight[4] + SensorA[5] * weight[5] + SensorA[6] * weight[6] + SensorA[7] * weight[7];
-		if (!error)
-			break;
-		if (error < 0)
-		{
-		}
-		else if (error > 0)
-		{
-		}
-	}
+	s32 error;
+	Lane_Counter_Fwd_Read();
+	error = SensorA[0] * weight[0] + SensorA[1] * weight[1] + SensorA[2] * weight[2] + SensorA[3] * weight[3] +
+				SensorA[4] * weight[4] + SensorA[5] * weight[5] + SensorA[6] * weight[6] + SensorA[7] * weight[7];
+
+	speed_L = speed + KP * error;
+	speed_R = speed - KP * error;
+	Motor_PWM(speed_L, speed_R);
 	// stop
 }
 
-u8 Lane_Counter_Fwd(void)
+void Go_Stright_Fwd(u8 num)
 {
-
-	u8 i = 0;
-	u8 temp = 0;
-	for (i = 0; i < 8; i++)
+	u8 led_num = 0;
+	u8 count = 0;
+	while (num)
 	{
-		temp += SensorA[i];
-	}
-	if (temp >= 7)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
+		count = 0;
+		while (1)
+		{
+			led_num = SensorA[0] + SensorA[1] + SensorA[2] + SensorA[3] +
+					  SensorA[4] + SensorA[5] + SensorA[6] + SensorA[7];
+			if (led_num < 4)
+			{
+				Lane_Keep_Fwd();
+			}
+			if (led_num >= 4)
+			{
+				count++;
+				continue;
+			}
+			if (count == num)
+			{
+				break;
+			}
+		}
 	}
 }
 
-u8 Lane_Counter_Bwd(void)//1表示经过线，0没经过
+u8 Lane_Counter_Bwd(void) // 1表示经过线，0没经过
 {
 
 	u8 i = 0;

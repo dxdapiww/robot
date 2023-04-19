@@ -7,6 +7,8 @@
 #include "tracker.h"
 #include "motor.h"
 #include "pid.h"
+#include "Encoder.h"
+#include "OLED.h"
 /************************************************
  ALIENTEK精英STM32开发板实验9
  PWM输出实验
@@ -16,25 +18,30 @@
  广州市星翼电子科技有限公司
  作者：正点原子 @ALIENTEK
 ************************************************/
-
+u32 speed = 3600;
+u32 i =1;
 int main(void)
 {
-	u16 led0pwmval = 0;
+	//u16 led0pwmval = 0;
 	//u8 dir = 1;
 	delay_init();									// 延时函数初始化
 	Lane_Counter_Fwd_Init();
 	Lane_Coutner_Back_Init();
+	OLED_Init();
+	Encoder_Init();
 	Motor_Init();
-	TIM4_Init();
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); // 设置NVIC中断分组2:2位抢占优先级，2位响应优先级
 	uart_init(115200);								// 串口初始化为115200
 	//LED_Init();										// LED端口初始化
 	TIM3_PWM_Init(7199, 0);							// 不分频。PWM频率=72000000/900=80Khz
-
 	while (1)
 	{
-		TIM_SetCompare2(TIM3, 3600);
-		TIM_SetCompare1(TIM3, 3600);
-		printf("1\n");
+		Motor_PWM(3600,3600);
+		i=Encoder_Get();
+		OLED_ShowSignedNum(2,2,i,5);
+		//Go_Stright_Fwd(4);
+		// TIM_SetCompare2(TIM3, speed);
+		// TIM_SetCompare1(TIM3, speed);
+		// printf("1\n");
 	}
 }

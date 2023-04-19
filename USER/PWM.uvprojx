@@ -449,6 +449,31 @@
               <FileType>5</FileType>
               <FilePath>.\pid.h</FilePath>
             </File>
+            <File>
+              <FileName>Encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>Encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\OLED.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\OLED.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Font.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\OLED_Font.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

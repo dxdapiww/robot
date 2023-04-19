@@ -75,3 +75,15 @@ void PID_Speed_Control()
     delay_ms(1000 / PID_FREQ);
   }
 }
+
+void Motor_Stop(void)
+{
+	TIM_SetCompare2(TIM3, 0);
+	TIM_SetCompare1(TIM3, 0);
+}
+
+void Motor_PWM(u32 left_speed,u32 right_speed)
+{
+	TIM_SetCompare2(TIM3, left_speed);
+	TIM_SetCompare1(TIM3, right_speed);
+}
