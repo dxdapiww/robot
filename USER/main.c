@@ -24,6 +24,7 @@ int main(void)
 	Lane_Counter_Fwd_Init();
 	Lane_Coutner_Back_Init();
 	Motor_Init();
+	TIM4_Init();
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); // 设置NVIC中断分组2:2位抢占优先级，2位响应优先级
 	uart_init(115200);								// 串口初始化为115200
 	//LED_Init();										// LED端口初始化
@@ -33,5 +34,6 @@ int main(void)
 	{
 		TIM_SetCompare2(TIM3, 450);
 		TIM_SetCompare1(TIM3, 450);
+		printf("1\n");
 	}
 }

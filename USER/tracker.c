@@ -4,7 +4,7 @@
 #include "tracker.h"
 u8 SensorB[8] = {0};
 u8 SensorA[8] = {0};
-u8 weight[8] = {-20,-15,-10,-5,5,10,15,20};
+s8 weight[8] = {-20,-15,-10,-5,5,10,15,20};
 void Lane_Counter_Fwd_Init(void)//前循迹GPIO初始化
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -126,7 +126,7 @@ void Lane_Keep_Fwd(void)
 {
 	while(1)
 	{
-		u32 error = SensorA[0]*weight[0]+SensorA[1]*weight[1]+SensorA[2]*weight[2]+SensorA[3]*weight[3]+
+		s32 error = SensorA[0]*weight[0]+SensorA[1]*weight[1]+SensorA[2]*weight[2]+SensorA[3]*weight[3]+
 					SensorA[4]*weight[4]+SensorA[5]*weight[5]+SensorA[6]*weight[6]+SensorA[7]*weight[7];
 		if(!error) break;
 		if(error<0)

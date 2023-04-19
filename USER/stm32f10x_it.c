@@ -79,6 +79,17 @@ void SysTick_Handler(void)
 {
 }
 
+void TIM4_IRQHandler(void)
+{
+  if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET) {
+    /* Toggle LED */
+    //GPIO_WriteBit(GPIOC, GPIO_Pin_13, !GPIO_ReadOutputDataBit(GPIOC, GPIO_Pin_13));
+
+    /* Clear interrupt flag */
+    TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+  }
+}
+
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

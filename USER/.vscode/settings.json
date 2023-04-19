@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "tracker.h": "c",
-        "usart.h": "c"
+        "usart.h": "c",
+        "led.h": "c",
+        "timer.h": "c",
+        "sys.h": "c",
+        "motor.h": "c"
     }
 }

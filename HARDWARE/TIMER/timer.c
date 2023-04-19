@@ -1,6 +1,7 @@
 #include "timer.h"
 #include "led.h"
 #include "usart.h"
+#include "motor.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTE精英STM32开发板
@@ -102,4 +103,25 @@ void TIM3_PWM_Init(u16 arr,u16 psc)
 	TIM_Cmd(TIM3, ENABLE);  //使能TIM3
 	
 
+}
+
+void TIM4_Init(void)
+{
+  TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+
+  /* Enable TIM4 clock */
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+
+  /* Configure TIM4 frequency and period */
+  TIM_TimeBaseStructure.TIM_Period = SystemCoreClock / PID_FREQ - 1;
+  TIM_TimeBaseStructure.TIM_Prescaler = 0;
+  TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+  TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+
+  /* Enable TIM4 interrupt */
+  TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
+
+  /* Start TIM4 */
+  TIM_Cmd(TIM4, ENABLE);
 }

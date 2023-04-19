@@ -1,6 +1,6 @@
 Dependencies for Project 'PWM', Target 'PWM': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x643EA6D3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x643F99B1)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x504CB780)
@@ -35,10 +35,10 @@ I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (..\HARDWARE\KEY\key.h)(0x55102792)
 I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (..\HARDWARE\TIMER\timer.h)(0x5053266C)
-I (tracker.h)(0x643EA699)
-I (motor.h)(0x643EA69E)
-F (.\stm32f10x_it.c)(0x4EBEACB0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
+I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
+I (tracker.h)(0x643EAE40)
+I (motor.h)(0x643F9BC6)
+F (.\stm32f10x_it.c)(0x643F9ACB)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x4D99A427)
 I (stm32f10x.h)(0x504CB780)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -162,8 +162,8 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\HARDWARE\KEY\key.h)(0x55102792)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
-F (..\HARDWARE\TIMER\timer.c)(0x643D518D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
-I (..\HARDWARE\TIMER\timer.h)(0x5053266C)
+F (..\HARDWARE\TIMER\timer.c)(0x643F9A74)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
+I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x504CB780)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -196,9 +196,10 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (.\tracker.h)(0x643EA699)()
-F (.\tracker.c)(0x643EA6A9)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\tracker.o --omf_browse ..\obj\tracker.crf --depend ..\obj\tracker.d)
-I (..\HARDWARE\TIMER\timer.h)(0x5053266C)
+I (..\USER\motor.h)(0x643F9BC6)
+F (.\tracker.h)(0x643EAE40)()
+F (.\tracker.c)(0x643F9A1F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\tracker.o --omf_browse ..\obj\tracker.crf --depend ..\obj\tracker.d)
+I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x504CB780)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -231,10 +232,10 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (tracker.h)(0x643EA699)
-F (.\motor.c)(0x643EA6B6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motor.o --omf_browse ..\obj\motor.crf --depend ..\obj\motor.d)
-I (motor.h)(0x643EA69E)
-I (..\HARDWARE\TIMER\timer.h)(0x5053266C)
+I (tracker.h)(0x643EAE40)
+F (.\motor.c)(0x643F9C0B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motor.o --omf_browse ..\obj\motor.crf --depend ..\obj\motor.d)
+I (motor.h)(0x643F9BC6)
+I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x504CB780)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -267,7 +268,8 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (.\motor.h)(0x643EA69E)()
+I (..\SYSTEM\delay\delay.h)(0x555AC82A)
+F (.\motor.h)(0x643F9BC6)()
 F (..\SYSTEM\delay\delay.c)(0x555AC82A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
