@@ -1,11 +1,15 @@
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'PWM'
-compiling motor.c...
-motor.c(77): warning:  #1-D: last line of file ends without a newline
+compiling tracker.c...
+tracker.c(178): warning:  #1-D: last line of file ends without a newline
   }
-motor.c: 1 warning, 0 errors
+tracker.c: 1 warning, 0 errors
+compiling main.c...
+main.c(21): warning:  #177-D: variable "led0pwmval"  was declared but never referenced
+  	u16 led0pwmval = 0;
+main.c: 1 warning, 0 errors
 linking...
-Program Size: Code=11184 RO-data=336 RW-data=120 ZI-data=1832  
+Program Size: Code=11256 RO-data=336 RW-data=120 ZI-data=1832  
 FromELF: creating hex file...
-"..\OBJ\PWM.axf" - 0 Error(s), 1 Warning(s).
-Build Time Elapsed:  00:00:01
+"..\OBJ\PWM.axf" - 0 Error(s), 2 Warning(s).
+Build Time Elapsed:  00:00:02

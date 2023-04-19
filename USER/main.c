@@ -28,12 +28,12 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); // 设置NVIC中断分组2:2位抢占优先级，2位响应优先级
 	uart_init(115200);								// 串口初始化为115200
 	//LED_Init();										// LED端口初始化
-	TIM3_PWM_Init(899, 0);							// 不分频。PWM频率=72000000/900=80Khz
+	TIM3_PWM_Init(7199, 0);							// 不分频。PWM频率=72000000/900=80Khz
 
 	while (1)
 	{
-		TIM_SetCompare2(TIM3, 450);
-		TIM_SetCompare1(TIM3, 450);
+		TIM_SetCompare2(TIM3, 3600);
+		TIM_SetCompare1(TIM3, 3600);
 		printf("1\n");
 	}
 }
