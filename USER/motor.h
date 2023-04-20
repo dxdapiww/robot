@@ -2,6 +2,8 @@
 #include "led.h"
 #include "usart.h"
 #include "stm32f10x.h"
+#include "Encoder.h"
+#include "delay.h"
 
 #define PID_FREQ 1000
 #define PWM_FREQ 20000
@@ -18,3 +20,4 @@
 void Motor_Init(void);
 void Motor_Stop(void);
 void Motor_PWM(u32 left_speed,u32 right_speed);
+void Turn_Left(void);

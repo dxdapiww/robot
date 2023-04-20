@@ -37,6 +37,7 @@
 ..\obj\main.o: ..\HARDWARE\TIMER\timer.h
 ..\obj\main.o: tracker.h
 ..\obj\main.o: motor.h
-..\obj\main.o: pid.h
 ..\obj\main.o: Encoder.h
 ..\obj\main.o: OLED.h
+..\obj\main.o: motor.h
+..\obj\main.o: pid.h

@@ -34,4 +34,5 @@
 ..\obj\motor.o: ..\HARDWARE\LED\led.h
 ..\obj\motor.o: ..\SYSTEM\usart\usart.h
 ..\obj\motor.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\motor.o: Encoder.h
 ..\obj\motor.o: ..\SYSTEM\delay\delay.h

@@ -34,3 +34,5 @@
 ..\obj\timer.o: ..\SYSTEM\usart\usart.h
 ..\obj\timer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\timer.o: ..\USER\motor.h
+..\obj\timer.o: ..\USER\Encoder.h
+..\obj\timer.o: ..\SYSTEM\delay\delay.h

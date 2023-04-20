@@ -35,3 +35,6 @@
 ..\obj\tracker.o: ..\SYSTEM\usart\usart.h
 ..\obj\tracker.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\tracker.o: motor.h
+..\obj\tracker.o: Encoder.h
+..\obj\tracker.o: ..\SYSTEM\delay\delay.h
+..\obj\tracker.o: OLED.h

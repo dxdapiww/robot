@@ -19,7 +19,7 @@
  作者：正点原子 @ALIENTEK
 ************************************************/
 u32 speed = 3600;
-u32 i =1;
+
 int main(void)
 {
 	//u16 led0pwmval = 0;
@@ -37,8 +37,8 @@ int main(void)
 	while (1)
 	{
 		Motor_PWM(3600,3600);
-		i=Encoder_Get();
-		OLED_ShowSignedNum(2,2,i,5);
+		// i=Encoder_Get();
+		// OLED_ShowSignedNum(2,2,i,5);
 		//Go_Stright_Fwd(4);
 		// TIM_SetCompare2(TIM3, speed);
 		// TIM_SetCompare1(TIM3, speed);

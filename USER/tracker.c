@@ -1,5 +1,4 @@
 #include "tracker.h"
-#include "motor.h"
 u8 SensorB[8] = {0};
 u8 SensorA[8] = {0};
 s8 weight[8] = {-20, -15, -10, -5, 5, 10, 15, 20};
@@ -112,7 +111,6 @@ void Lane_Counter_Fwd_Read(void) // 前循迹
 
 void Lane_Counter_Back_Read(void) // 后循迹
 {
-	
 	SensorB[0] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_13);
 	SensorB[1] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_14);
 	SensorB[2] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_15);
@@ -127,7 +125,7 @@ void Lane_Keep_Fwd(void)
 	s32 error;
 	Lane_Counter_Fwd_Read();
 	error = SensorA[0] * weight[0] + SensorA[1] * weight[1] + SensorA[2] * weight[2] + SensorA[3] * weight[3] +
-				SensorA[4] * weight[4] + SensorA[5] * weight[5] + SensorA[6] * weight[6] + SensorA[7] * weight[7];
+			SensorA[4] * weight[4] + SensorA[5] * weight[5] + SensorA[6] * weight[6] + SensorA[7] * weight[7];
 
 	speed_L = speed + KP * error;
 	speed_R = speed - KP * error;
@@ -137,6 +135,7 @@ void Lane_Keep_Fwd(void)
 
 void Go_Stright_Fwd(u8 num)
 {
+	u32 i = 1;
 	u8 led_num = 0;
 	u8 count = 0;
 	while (num)
@@ -155,10 +154,8 @@ void Go_Stright_Fwd(u8 num)
 				count++;
 				continue;
 			}
-			if (count == num)
-			{
-				break;
-			}
+			i = Encoder_Get();
+			OLED_ShowSignedNum(2, 2, i, 5);
 		}
 	}
 }

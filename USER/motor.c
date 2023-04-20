@@ -1,5 +1,4 @@
 #include "motor.h"
-#include "delay.h"
 /* Global variables */
 float set_speed = 0.0f;
 float curr_speed = 0.0f;
@@ -86,4 +85,17 @@ void Motor_PWM(u32 left_speed,u32 right_speed)
 {
 	TIM_SetCompare2(TIM3, left_speed);
 	TIM_SetCompare1(TIM3, right_speed);
+}
+
+void Turn_Let(void)
+{
+	GPIO_ResetBits(GPIOG, GPIO_Pin_10);//信号线
+	GPIO_SetBits(GPIOG, GPIO_Pin_9);
+	GPIO_SetBits(GPIOD, GPIO_Pin_6);
+	GPIO_ResetBits(GPIOD, GPIO_Pin_7);
+	TIM_SetCounter(TIM2,0);
+	while(Encoder_Get()<1700)
+	{
+
+	}
 }
