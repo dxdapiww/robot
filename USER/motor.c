@@ -89,8 +89,8 @@ void Motor_Stop(void)
 
 void Motor_PWM(u32 left_speed, u32 right_speed) // 100 = 100%Speed
 {
-	TIM_SetCompare2(TIM3, left_speed * 10);
-	TIM_SetCompare1(TIM3, right_speed * 10);
+	TIM_SetCompare2(TIM3, left_speed);
+	TIM_SetCompare1(TIM3, right_speed);
 }
 
 void Motor1_Bwd(void)

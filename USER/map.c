@@ -10,8 +10,8 @@ void Init_All(void) // 初始化所有内容
 	Encoder_Init();
 	// NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	// uart_init(115200);
-	TIM3_PWM_Init(99, 72); // 10khz
 	Motor_Init();
+	TIM3_PWM_Init(99, 72); // 10khz
 }
 
 void Map1(void)

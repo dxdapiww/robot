@@ -198,11 +198,11 @@ void Go_Stright_Fwd(u8 num)
 			{
 				flag = 3;
 				OLED_ShowSignedNum(2, 2, flag, 5);
-				speed=Slow;
+				speed = Slow;
 				Lane_Keep_Fwd();
 				if (Encoder_Get() <= -800)
 				{
-					speed=Normal;
+					speed = Normal;
 					break;
 				}
 			}
