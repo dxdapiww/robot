@@ -1,8 +1,9 @@
 #include "tracker.h"
 u8 SensorB[8] = {0};
 u8 SensorA[8] = {0};
-s8 weight[8] = {-20, -15, -10, -5, 5, 10, 15, 20};
-extern u32 speed;
+u8 SensorC[4] = {0};
+sc8 weight[8] = {-15, -10, -5, -2, 2, 5, 10, 15};
+u32 speed = Normal;
 u32 speed_L, speed_R;
 void Lane_Counter_Fwd_Init(void) // 前循迹GPIO初始化
 {
@@ -52,7 +53,7 @@ void Lane_Counter_Fwd_Init(void) // 前循迹GPIO初始化
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
 
-void Lane_Coutner_Back_Init(void) // 后循迹GPIO初始化
+void Lane_Counter_Back_Init(void) // 后循迹GPIO初始化
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF | RCC_APB2Periph_GPIOG, ENABLE);
@@ -97,6 +98,32 @@ void Lane_Coutner_Back_Init(void) // 后循迹GPIO初始化
 	GPIO_Init(GPIOF, &GPIO_InitStructure);
 }
 
+void Cross_Detect_Init(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure;
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+
+	// XJ3 0
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+	// XJ3 1
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+	// XJ3 2
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+	// XJ3 3
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+}
+
 void Lane_Counter_Fwd_Read(void) // 前循迹
 {
 	SensorA[0] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4);
@@ -120,6 +147,15 @@ void Lane_Counter_Back_Read(void) // 后循迹
 	SensorB[6] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11);
 	SensorB[7] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_12);
 }
+
+void Cross_Detect_Read(void)
+{
+	SensorC[0] = GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_12);
+	SensorC[1] = GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_13);
+	SensorC[2] = GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_14);
+	SensorC[3] = GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_15);
+}
+
 void Lane_Keep_Fwd(void)
 {
 	s32 error;
@@ -135,28 +171,56 @@ void Lane_Keep_Fwd(void)
 
 void Go_Stright_Fwd(u8 num)
 {
-	u32 i = 1;
-	u8 led_num = 0;
-	u8 count = 0;
+	u8 flag;
 	while (num)
 	{
-		count = 0;
+		u8 led_num = 0;
 		while (1)
 		{
-			led_num = SensorA[0] + SensorA[1] + SensorA[2] + SensorA[3] +
-					  SensorA[4] + SensorA[5] + SensorA[6] + SensorA[7];
-			if (led_num < 4)
+			flag = 1;
+			OLED_ShowSignedNum(2, 2, flag, 5);
+			Lane_Counter_Fwd_Read();
+			led_num = SensorA[0] + SensorA[1] + SensorA[2] + SensorA[3] + SensorA[4] + SensorA[5] + SensorA[6] + SensorA[7];
+			if (led_num > 4)
 			{
 				Lane_Keep_Fwd();
 			}
-			if (led_num >= 4)
+			if (led_num <= 2)
 			{
-				count++;
-				continue;
+				TIM_SetCounter(TIM2, 0);
+				break;
 			}
-			i = Encoder_Get();
-			OLED_ShowSignedNum(2, 2, i, 5);
 		}
+		TIM_SetCounter(TIM2, 0);
+		while (1)
+		{
+			if (num == 1)
+			{
+				flag = 3;
+				OLED_ShowSignedNum(2, 2, flag, 5);
+				speed=Slow;
+				Lane_Keep_Fwd();
+				if (Encoder_Get() <= -800)
+				{
+					speed=Normal;
+					break;
+				}
+			}
+			else
+			{
+				flag = 2;
+				OLED_ShowSignedNum(2, 2, flag, 5);
+				Lane_Keep_Fwd();
+				if (Encoder_Get() <= -800)
+				{
+					TIM_SetCounter(TIM2, 0);
+					break;
+				}
+			}
+		}
+		num--;
+		OLED_ShowSignedNum(2, 2, flag, 5);
+		// Motor_Stop();
 	}
 }
 

@@ -190,7 +190,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -399,6 +399,11 @@
               <FileType>1</FileType>
               <FilePath>.\system_stm32f10x.c</FilePath>
             </File>
+            <File>
+              <FileName>main.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\main.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -473,6 +478,16 @@
               <FileName>OLED_Font.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\OLED_Font.h</FilePath>
+            </File>
+            <File>
+              <FileName>map.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\map.c</FilePath>
+            </File>
+            <File>
+              <FileName>map.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\map.h</FilePath>
             </File>
           </Files>
         </Group>

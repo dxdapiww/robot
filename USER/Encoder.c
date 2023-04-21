@@ -7,7 +7,7 @@
 	PB7 -->	TIM4_CH2
 */
 #include "stm32f10x.h"                  // Device header
-
+#include "OLED.h"
 void Encoder_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -54,3 +54,8 @@ int16_t Encoder_Get(void)
 	return TIM_GetCounter(TIM2);
 }
 
+void Encoder_Show(void)
+{
+	u32 i=Encoder_Get();
+	OLED_ShowSignedNum(2, 2, i, 5);
+}

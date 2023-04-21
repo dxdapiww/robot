@@ -5,6 +5,7 @@
         "led.h": "c",
         "timer.h": "c",
         "sys.h": "c",
-        "motor.h": "c"
+        "motor.h": "c",
+        "encoder.h": "c"
     }
 }

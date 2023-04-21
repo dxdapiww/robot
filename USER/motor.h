@@ -13,11 +13,20 @@
 #define MOTOR_L 0.01f
 #define MOTOR_K 0.01f
 
-#define KP 25.0f
+#define KP 0.03f
 #define KI 0.1f
 #define KD 0.2f
 
+#define Normal 5
+#define Slow 3
+#define Max 5
 void Motor_Init(void);
 void Motor_Stop(void);
 void Motor_PWM(u32 left_speed,u32 right_speed);
 void Turn_Left(void);
+void Turn_Right(void);
+void Motor_Start(void);
+void Motor1_Fwd(void);
+void Motor1_Bwd(void);
+void Motor2_Fwd(void);
+void Motor2_Bwd(void);

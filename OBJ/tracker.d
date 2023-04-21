@@ -38,3 +38,4 @@
 ..\obj\tracker.o: Encoder.h
 ..\obj\tracker.o: ..\SYSTEM\delay\delay.h
 ..\obj\tracker.o: OLED.h
+..\obj\tracker.o: motor.h

@@ -1,4 +1,5 @@
 ..\obj\main.o: main.c
+..\obj\main.o: main.h
 ..\obj\main.o: ..\HARDWARE\LED\led.h
 ..\obj\main.o: ..\SYSTEM\sys\sys.h
 ..\obj\main.o: ..\USER\stm32f10x.h
@@ -40,4 +41,10 @@
 ..\obj\main.o: Encoder.h
 ..\obj\main.o: OLED.h
 ..\obj\main.o: motor.h
+..\obj\main.o: motor.h
 ..\obj\main.o: pid.h
+..\obj\main.o: map.h
+..\obj\main.o: motor.h
+..\obj\main.o: tracker.h
+..\obj\main.o: motor.h
+..\obj\main.o: motor.h
