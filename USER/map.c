@@ -1,6 +1,6 @@
 #include "map.h" //存放地图
 
-void Init_All(void)//初始化所有内容
+void Init_All(void) // 初始化所有内容
 {
 	delay_init();
 	Lane_Counter_Fwd_Init();
@@ -8,7 +8,9 @@ void Init_All(void)//初始化所有内容
 	Cross_Detect_Init();
 	OLED_Init();
 	Encoder_Init();
-	TIM3_PWM_Init(99, 72);//10khz
+	// NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+	// uart_init(115200);
+	TIM3_PWM_Init(99, 72); // 10khz
 	Motor_Init();
 }
 
