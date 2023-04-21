@@ -1,6 +1,6 @@
 Dependencies for Project 'PWM', Target 'PWM': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x6441EA82)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x6441F262)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (main.h)(0x6441E9D0)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
@@ -38,7 +38,7 @@ I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
 I (tracker.h)(0x6441E7DD)
-I (motor.h)(0x6441E7D9)
+I (motor.h)(0x64420543)
 I (Encoder.h)(0x6440E5E9)
 I (OLED.h)(0x643FECB0)
 I (pid.h)(0x643FBD4D)
@@ -202,11 +202,11 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (..\USER\motor.h)(0x6441E7D9)
+I (..\USER\motor.h)(0x64420543)
 I (..\USER\Encoder.h)(0x6440E5E9)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 F (.\tracker.h)(0x6441E7DD)()
-F (.\tracker.c)(0x6441E7DD)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\tracker.o --omf_browse ..\obj\tracker.crf --depend ..\obj\tracker.d)
+F (.\tracker.c)(0x644205D4)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\tracker.o --omf_browse ..\obj\tracker.crf --depend ..\obj\tracker.d)
 I (tracker.h)(0x6441E7DD)
 I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
@@ -241,12 +241,12 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\HARDWARE\LED\led.h)(0x5510227D)
 I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (motor.h)(0x6441E7D9)
+I (motor.h)(0x64420543)
 I (Encoder.h)(0x6440E5E9)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
 I (OLED.h)(0x643FECB0)
-F (.\motor.c)(0x6441E782)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motor.o --omf_browse ..\obj\motor.crf --depend ..\obj\motor.d)
-I (motor.h)(0x6441E7D9)
+F (.\motor.c)(0x64420568)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\motor.o --omf_browse ..\obj\motor.crf --depend ..\obj\motor.d)
+I (motor.h)(0x64420543)
 I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x504CB780)
@@ -282,7 +282,7 @@ I (..\SYSTEM\usart\usart.h)(0x50517A83)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (Encoder.h)(0x6440E5E9)
 I (..\SYSTEM\delay\delay.h)(0x555AC82A)
-F (.\motor.h)(0x6441E7D9)()
+F (.\motor.h)(0x64420543)()
 F (.\pid.c)(0x643FBE78)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\pid.o --omf_browse ..\obj\pid.crf --depend ..\obj\pid.d)
 I (pid.h)(0x643FBD4D)
 I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
@@ -384,9 +384,9 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (OLED_Font.h)(0x643FECB0)
 F (.\OLED.h)(0x643FECB0)()
 F (.\OLED_Font.h)(0x643FECB0)()
-F (.\map.c)(0x6441EAA2)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\map.o --omf_browse ..\obj\map.crf --depend ..\obj\map.d)
+F (.\map.c)(0x644204B0)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HARDWARE\LED -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\KEY -I ..\HARDWARE\TIMER-ID:\Arm\Packs\Keil\STM32F1xx_DFP\1.1.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\map.o --omf_browse ..\obj\map.crf --depend ..\obj\map.d)
 I (map.h)(0x6441EA9B)
-I (motor.h)(0x6441E7D9)
+I (motor.h)(0x64420543)
 I (..\HARDWARE\TIMER\timer.h)(0x643F99A5)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x504CB780)
