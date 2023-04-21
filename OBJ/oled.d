@@ -1,7 +1,7 @@
 ..\obj\oled.o: OLED.c
 ..\obj\oled.o: stm32f10x.h
 ..\obj\oled.o: ..\CORE\core_cm3.h
-..\obj\oled.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\oled.o: D:\kile\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\oled.o: system_stm32f10x.h
 ..\obj\oled.o: stm32f10x_conf.h
 ..\obj\oled.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

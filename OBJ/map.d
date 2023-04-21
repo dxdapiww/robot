@@ -5,7 +5,7 @@
 ..\obj\map.o: ..\SYSTEM\sys\sys.h
 ..\obj\map.o: ..\USER\stm32f10x.h
 ..\obj\map.o: ..\CORE\core_cm3.h
-..\obj\map.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\map.o: D:\kile\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\map.o: ..\USER\system_stm32f10x.h
 ..\obj\map.o: ..\USER\stm32f10x_conf.h
 ..\obj\map.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -34,7 +34,7 @@
 ..\obj\map.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\map.o: ..\HARDWARE\LED\led.h
 ..\obj\map.o: ..\SYSTEM\usart\usart.h
-..\obj\map.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\map.o: D:\kile\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\map.o: Encoder.h
 ..\obj\map.o: ..\SYSTEM\delay\delay.h
 ..\obj\map.o: tracker.h

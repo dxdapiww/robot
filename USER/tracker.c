@@ -171,14 +171,14 @@ void Lane_Keep_Fwd(void)
 
 void Go_Stright_Fwd(u8 num)
 {
-	u8 flag;
+//	u8 flag;
 	while (num)
 	{
 		u8 led_num = 0;
 		while (1)
 		{
-			flag = 1;
-			OLED_ShowSignedNum(2, 2, flag, 5);
+//			flag = 1;
+//			OLED_ShowSignedNum(2, 2, flag, 5);
 			Lane_Counter_Fwd_Read();
 			led_num = SensorA[0] + SensorA[1] + SensorA[2] + SensorA[3] + SensorA[4] + SensorA[5] + SensorA[6] + SensorA[7];
 			if (led_num > 4)
@@ -196,11 +196,11 @@ void Go_Stright_Fwd(u8 num)
 		{
 			if (num == 1)
 			{
-				flag = 3;
-				OLED_ShowSignedNum(2, 2, flag, 5);
+//				flag = 3;
+//				OLED_ShowSignedNum(2, 2, flag, 5);
 				speed = Slow;
 				Lane_Keep_Fwd();
-				if (Encoder_Get() <= -800)
+				if (Encoder_Get() <= -950)
 				{
 					speed = Normal;
 					break;
@@ -208,10 +208,10 @@ void Go_Stright_Fwd(u8 num)
 			}
 			else
 			{
-				flag = 2;
-				OLED_ShowSignedNum(2, 2, flag, 5);
+//				flag = 2;
+//				OLED_ShowSignedNum(2, 2, flag, 5);
 				Lane_Keep_Fwd();
-				if (Encoder_Get() <= -800)
+				if (Encoder_Get() <= -950)
 				{
 					TIM_SetCounter(TIM2, 0);
 					break;
@@ -219,7 +219,7 @@ void Go_Stright_Fwd(u8 num)
 			}
 		}
 		num--;
-		OLED_ShowSignedNum(2, 2, flag, 5);
+//		OLED_ShowSignedNum(2, 2, flag, 5);
 		// Motor_Stop();
 	}
 }

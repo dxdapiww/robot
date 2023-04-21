@@ -1,7 +1,7 @@
 ..\obj\encoder.o: Encoder.c
 ..\obj\encoder.o: stm32f10x.h
 ..\obj\encoder.o: ..\CORE\core_cm3.h
-..\obj\encoder.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\encoder.o: D:\kile\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\encoder.o: system_stm32f10x.h
 ..\obj\encoder.o: stm32f10x_conf.h
 ..\obj\encoder.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

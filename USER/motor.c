@@ -122,7 +122,7 @@ void Turn_Left(void)//左转
 	{
 		Motor1_Fwd();
 		Motor2_Bwd();
-		if (Encoder_Get() == 1750)
+		if (Encoder_Get() == 1700)
 		{
 			Motor1_Fwd();
 			Motor2_Fwd();

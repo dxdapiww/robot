@@ -13,13 +13,13 @@
 #define MOTOR_L 0.01f
 #define MOTOR_K 0.01f
 
-#define KP 0.3f
+#define KP 0.75f
 #define KI 0.1f
 #define KD 0.2f
 
 #define Normal 50
-#define Slow 30
-#define Max 75
+#define Max 25
+#define Slow 75
 void Motor_Init(void);
 void Motor_Stop(void);
 void Motor_PWM(u32 left_speed,u32 right_speed);

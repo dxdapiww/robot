@@ -17,13 +17,13 @@ void Init_All(void) // 初始化所有内容
 void Map1(void)
 {
 	Motor_Start();
-	Go_Stright_Fwd(5);
+	Go_Stright_Fwd(9);
 	Turn_Left();
-	Go_Stright_Fwd(5);
+	Go_Stright_Fwd(6);
 	Turn_Left();
-	Go_Stright_Fwd(5);
+	Go_Stright_Fwd(8);
 	Turn_Left();
-	Go_Stright_Fwd(5);
+	Go_Stright_Fwd(6);
 	Turn_Left();
 	Motor_Stop();
 }

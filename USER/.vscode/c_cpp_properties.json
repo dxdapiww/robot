@@ -3,19 +3,19 @@
         {
             "name": "PWM",
             "includePath": [
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\HARDWARE\\LED",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\SYSTEM\\delay",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\SYSTEM\\sys",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\SYSTEM\\usart",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\USER",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\STM32F10x_FWLib\\inc",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\CORE",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\HARDWARE\\KEY",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\HARDWARE\\TIMER",
+                "d:\\Code\\Robot\\robot4.21 (2)\\HARDWARE\\LED",
+                "d:\\Code\\Robot\\robot4.21 (2)\\SYSTEM\\delay",
+                "d:\\Code\\Robot\\robot4.21 (2)\\SYSTEM\\sys",
+                "d:\\Code\\Robot\\robot4.21 (2)\\SYSTEM\\usart",
+                "d:\\Code\\Robot\\robot4.21 (2)\\USER",
+                "d:\\Code\\Robot\\robot4.21 (2)\\STM32F10x_FWLib\\inc",
+                "d:\\Code\\Robot\\robot4.21 (2)\\CORE",
+                "d:\\Code\\Robot\\robot4.21 (2)\\HARDWARE\\KEY",
+                "d:\\Code\\Robot\\robot4.21 (2)\\HARDWARE\\TIMER",
                 "D:\\Keil_v5\\ARM\\ARMCC\\include",
                 "D:\\Keil_v5\\ARM\\ARMCC\\include\\rw",
-                "d:\\Code\\Robot\\实验9 PWM输出实验\\STM32F10x_FWLib\\src",
-                "d:\\Code\\Robot\\实验9 PWM输出实验"
+                "d:\\Code\\Robot\\robot4.21 (2)\\STM32F10x_FWLib\\src",
+                "d:\\Code\\Robot\\robot4.21 (2)"
             ],
             "defines": [
                 "STM32F10X_HD",
