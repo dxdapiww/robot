@@ -3,7 +3,7 @@ u32 i = 0;
 int main(void)
 {
 	Init_All();						
-	Map1();
+	Map2();
 	//	while (1)
 	//	{
 	//		i=Encoder_Get();

@@ -6,6 +6,9 @@
         "timer.h": "c",
         "sys.h": "c",
         "motor.h": "c",
-        "encoder.h": "c"
+        "encoder.h": "c",
+        "main.h": "c",
+        "map.h": "c",
+        "stm32f10x.h": "c"
     }
 }

@@ -53,7 +53,7 @@ void Lane_Counter_Fwd_Init(void) // 前循迹GPIO初始化
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
 
-void Lane_Counter_Back_Init(void) // 后循迹GPIO初始化
+void Lane_Counter_Bwd_Init(void) // 后循迹GPIO初始化
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF | RCC_APB2Periph_GPIOG, ENABLE);
@@ -136,7 +136,7 @@ void Lane_Counter_Fwd_Read(void) // 前循迹
 	SensorA[7] = GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_1);
 }
 
-void Lane_Counter_Back_Read(void) // 后循迹
+void Lane_Counter_Bwd_Read(void) // 后循迹
 {
 	SensorB[0] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_13);
 	SensorB[1] = GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_14);
@@ -169,16 +169,28 @@ void Lane_Keep_Fwd(void)
 	// stop
 }
 
+void Lane_Keep_Bwd(void)
+{
+	s32 error;
+	Lane_Counter_Bwd_Read();
+	error = SensorB[0] * weight[0] + SensorB[1] * weight[1] + SensorB[2] * weight[2] + SensorB[3] * weight[3] +
+			SensorB[4] * weight[4] + SensorB[5] * weight[5] + SensorB[6] * weight[6] + SensorB[7] * weight[7];
+
+	speed_L = speed + KP * error;
+	speed_R = speed - KP * error;
+	Motor_PWM(speed_L, speed_R);
+	// stop
+}
+
 void Go_Stright_Fwd(u8 num)
 {
-//	u8 flag;
+	Motor1_Fwd();
+	Motor2_Fwd();
 	while (num)
 	{
 		u8 led_num = 0;
 		while (1)
 		{
-//			flag = 1;
-//			OLED_ShowSignedNum(2, 2, flag, 5);
 			Lane_Counter_Fwd_Read();
 			led_num = SensorA[0] + SensorA[1] + SensorA[2] + SensorA[3] + SensorA[4] + SensorA[5] + SensorA[6] + SensorA[7];
 			if (led_num > 4)
@@ -196,8 +208,6 @@ void Go_Stright_Fwd(u8 num)
 		{
 			if (num == 1)
 			{
-//				flag = 3;
-//				OLED_ShowSignedNum(2, 2, flag, 5);
 				speed = Slow;
 				Lane_Keep_Fwd();
 				if (Encoder_Get() <= -950)
@@ -208,8 +218,6 @@ void Go_Stright_Fwd(u8 num)
 			}
 			else
 			{
-//				flag = 2;
-//				OLED_ShowSignedNum(2, 2, flag, 5);
 				Lane_Keep_Fwd();
 				if (Encoder_Get() <= -950)
 				{
@@ -219,26 +227,56 @@ void Go_Stright_Fwd(u8 num)
 			}
 		}
 		num--;
-//		OLED_ShowSignedNum(2, 2, flag, 5);
-		// Motor_Stop();
 	}
 }
 
-u8 Lane_Counter_Bwd(void) // 1表示经过线，0没经过
+void Go_Stright_Bwd(u8 num)
 {
-
-	u8 i = 0;
-	u8 temp = 0;
-	for (i = 0; i < 8; i++)
+	Motor1_Bwd();
+	Motor2_Bwd();
+	while (num)
 	{
-		temp += SensorB[i];
+		u8 led_num = 0;
+		while (1)
+		{
+			Lane_Counter_Bwd_Read();
+			led_num = SensorB[0] + SensorB[1] + SensorB[2] + SensorB[3] + SensorB[4] + SensorB[5] + SensorB[6] + SensorB[7];
+			if (led_num > 4)
+			{
+				Lane_Keep_Bwd();
+			}
+			if (led_num <= 2)
+			{
+				TIM_SetCounter(TIM2, 0);
+				break;
+			}
+		}
+		TIM_SetCounter(TIM2, 0);
+		while (1)
+		{
+			if (num == 1)
+			{
+				speed = Slow;
+				Lane_Keep_Fwd();
+				if (Encoder_Get() >= 950)
+				{
+					speed = Normal;
+					break;
+				}
+			}
+			else
+			{
+				Lane_Keep_Bwd();
+				if (Encoder_Get() >= 950)
+				{
+					TIM_SetCounter(TIM2, 0);
+					break;
+				}
+			}
+		}
+		num--;
 	}
-	if (temp >= 7)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
+	Motor1_Fwd();
+	Motor2_Fwd();
 }
+

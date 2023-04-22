@@ -1,3 +1,6 @@
+#ifndef __MOTOR_H
+#define __MOTOR_H
+
 #include "timer.h"
 #include "led.h"
 #include "usart.h"
@@ -17,12 +20,12 @@
 #define KI 0.1f
 #define KD 0.2f
 
-#define Normal 50
-#define Max 25
-#define Slow 75
+#define Normal 75 // 100-value = 占空比
+#define Max 1
+#define Slow 50
 void Motor_Init(void);
 void Motor_Stop(void);
-void Motor_PWM(u32 left_speed,u32 right_speed);
+void Motor_PWM(u32 left_speed, u32 right_speed);
 void Turn_Left(void);
 void Turn_Right(void);
 void Motor_Start(void);
@@ -30,3 +33,5 @@ void Motor1_Fwd(void);
 void Motor1_Bwd(void);
 void Motor2_Fwd(void);
 void Motor2_Bwd(void);
+
+#endif

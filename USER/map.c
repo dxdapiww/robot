@@ -4,7 +4,7 @@ void Init_All(void) // 初始化所有内容
 {
 	delay_init();
 	Lane_Counter_Fwd_Init();
-	Lane_Counter_Back_Init();
+	Lane_Counter_Bwd_Init();
 	Cross_Detect_Init();
 	OLED_Init();
 	Encoder_Init();
@@ -25,5 +25,35 @@ void Map1(void)
 	Turn_Left();
 	Go_Stright_Fwd(6);
 	Turn_Left();
+	Motor_Stop();
+}
+
+void Map2(void)
+{
+	Motor_Start();
+	Go_Stright_Fwd(4);
+	Turn_Right();
+	Go_Stright_Fwd(2);
+	Turn_Right();
+	Go_Stright_Fwd(2);
+    //
+	Go_Stright_Bwd(4);
+	//
+	Turn_Left();
+	Go_Stright_Fwd(2);
+	Turn_Right();
+	Go_Stright_Fwd(2);
+	//
+	Go_Stright_Bwd(4);
+	//
+	Turn_Left();
+	Go_Stright_Fwd(2);
+	Turn_Right();
+	Go_Stright_Fwd(7);
+	//
+	Turn_Right();
+	Go_Stright_Fwd(6);
+	Turn_Left();
+	delay_ms(50);
 	Motor_Stop();
 }
