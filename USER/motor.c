@@ -11,7 +11,6 @@ float pwm_output = 0.0f;
 float adc_value = 0.0f;
 float motor_voltage = 0.0f;
 float motor_current = 0.0f;
-
 void Motor_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -115,34 +114,4 @@ void Motor2_Bwd(void)
 	GPIO_ResetBits(GPIOD, GPIO_Pin_6);
 	GPIO_SetBits(GPIOD, GPIO_Pin_7);
 }
-void Turn_Left(void)//左转
-{
-	TIM_SetCounter(TIM2, 0);
-	while (1)
-	{
-		Motor1_Fwd();
-		Motor2_Bwd();
-		if (Encoder_Get() == 1700)
-		{
-			Motor1_Fwd();
-			Motor2_Fwd();
-			break;
-		}
-	}
-}
 
-void Turn_Right(void)//右转
-{
-	TIM_SetCounter(TIM2, 0);
-	while (1)
-	{
-		Motor1_Bwd();
-		Motor2_Fwd();
-		if (Encoder_Get() == -1900)
-		{
-			Motor1_Fwd();
-			Motor2_Fwd();
-			break;
-		}
-	}
-}

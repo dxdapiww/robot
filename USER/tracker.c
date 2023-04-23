@@ -1,8 +1,9 @@
 #include "tracker.h"
+#include <math.h>
 u8 SensorB[8] = {0};
 u8 SensorA[8] = {0};
 u8 SensorC[4] = {0};
-sc8 weight[8] = {-15, -10, -5, -2, 2, 5, 10, 15};
+sc8 weight[8] = {-18, -12, -8, -4, 4, 8, 12, 18};
 u32 speed = Normal;
 u32 speed_L, speed_R;
 void Lane_Counter_Fwd_Init(void) // 前循迹GPIO初始化
@@ -176,8 +177,8 @@ void Lane_Keep_Bwd(void)
 	error = SensorB[0] * weight[0] + SensorB[1] * weight[1] + SensorB[2] * weight[2] + SensorB[3] * weight[3] +
 			SensorB[4] * weight[4] + SensorB[5] * weight[5] + SensorB[6] * weight[6] + SensorB[7] * weight[7];
 
-	speed_L = speed + KP * error;
-	speed_R = speed - KP * error;
+	speed_L = speed  - KP * error;
+	speed_R = speed  + KP * error;
 	Motor_PWM(speed_L, speed_R);
 	// stop
 }
@@ -210,16 +211,16 @@ void Go_Stright_Fwd(u8 num)
 			{
 				speed = Slow;
 				Lane_Keep_Fwd();
-				if (Encoder_Get() <= -950)
+				if (Encoder_Get() <= -450) // 3/4 speed 700
 				{
-					speed = Normal;
+					// speed = Normal;
 					break;
 				}
 			}
 			else
 			{
 				Lane_Keep_Fwd();
-				if (Encoder_Get() <= -950)
+				if (Encoder_Get() <= -450)
 				{
 					TIM_SetCounter(TIM2, 0);
 					break;
@@ -258,16 +259,16 @@ void Go_Stright_Bwd(u8 num)
 			{
 				speed = Slow;
 				Lane_Keep_Fwd();
-				if (Encoder_Get() >= 950)
+				if (Encoder_Get() >= 500) // 3/4 speed 700
 				{
-					speed = Normal;
+					// speed = Normal;
 					break;
 				}
 			}
 			else
 			{
 				Lane_Keep_Bwd();
-				if (Encoder_Get() >= 950)
+				if (Encoder_Get() >= 500)
 				{
 					TIM_SetCounter(TIM2, 0);
 					break;
@@ -280,3 +281,44 @@ void Go_Stright_Bwd(u8 num)
 	Motor2_Fwd();
 }
 
+void Turn_Left(void) // 左转
+{
+	//	Motor_Stop();
+	//	delay_ms(100);
+	//	Motor_Start();
+	TIM_SetCounter(TIM2, 0);
+	speed = Slow;
+	while (1)
+	{
+		Motor1_Fwd();
+		Motor2_Bwd();
+		if (Encoder_Get() == 1550)
+		{
+			Motor1_Fwd();
+			Motor2_Fwd();
+			speed = Normal;
+			break;
+		}
+	}
+}
+
+void Turn_Right(void) // 右转
+{
+	//	Motor_Stop();
+	//	delay_ms(100);
+	//	Motor_Start();
+	TIM_SetCounter(TIM2, 0);
+	speed = Slow;
+	while (1)
+	{
+		Motor1_Bwd();
+		Motor2_Fwd();
+		if (Encoder_Get() == -1800)
+		{
+			Motor1_Fwd();
+			Motor2_Fwd();
+			speed = Normal;
+			break;
+		}
+	}
+}

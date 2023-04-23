@@ -12,22 +12,21 @@
 #define PWM_FREQ 20000
 #define PWM_DUTY_MAX 1000
 
-#define MOTOR_R 1.0f
+#define MOTOR_R 1.5f
 #define MOTOR_L 0.01f
 #define MOTOR_K 0.01f
 
-#define KP 0.75f
+#define KP 6.0f  //0.75f 3/4
 #define KI 0.1f
 #define KD 0.2f
 
-#define Normal 75 // 100-value = 占空比
+#define Normal 40 // 100-value = 占空比
 #define Max 1
-#define Slow 50
+#define Slow 120
 void Motor_Init(void);
 void Motor_Stop(void);
 void Motor_PWM(u32 left_speed, u32 right_speed);
-void Turn_Left(void);
-void Turn_Right(void);
+
 void Motor_Start(void);
 void Motor1_Fwd(void);
 void Motor1_Bwd(void);

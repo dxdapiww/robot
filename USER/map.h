@@ -10,4 +10,5 @@
 void Init_All(void);
 void Map1(void);
 void Map2(void);
+void Map3(void);
 #endif

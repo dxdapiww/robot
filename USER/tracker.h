@@ -13,7 +13,8 @@ void Cross_Detect_Init(void);
 void Cross_Detect_read(void);
 void Go_Stright_Bwd(u8 num);
 void Lane_Keep_Bwd(void);
-
+void Turn_Left(void);
+void Turn_Right(void);
 #endif
 
 

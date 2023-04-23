@@ -3,19 +3,19 @@
         {
             "name": "PWM",
             "includePath": [
-                "d:\\Code\\Robot\\robot4.21 (2)\\HARDWARE\\LED",
-                "d:\\Code\\Robot\\robot4.21 (2)\\SYSTEM\\delay",
-                "d:\\Code\\Robot\\robot4.21 (2)\\SYSTEM\\sys",
-                "d:\\Code\\Robot\\robot4.21 (2)\\SYSTEM\\usart",
-                "d:\\Code\\Robot\\robot4.21 (2)\\USER",
-                "d:\\Code\\Robot\\robot4.21 (2)\\STM32F10x_FWLib\\inc",
-                "d:\\Code\\Robot\\robot4.21 (2)\\CORE",
-                "d:\\Code\\Robot\\robot4.21 (2)\\HARDWARE\\KEY",
-                "d:\\Code\\Robot\\robot4.21 (2)\\HARDWARE\\TIMER",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\HARDWARE\\LED",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\SYSTEM\\delay",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\SYSTEM\\sys",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\SYSTEM\\usart",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\USER",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\STM32F10x_FWLib\\inc",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\CORE",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\HARDWARE\\KEY",
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\HARDWARE\\TIMER",
                 "D:\\Keil_v5\\ARM\\ARMCC\\include",
                 "D:\\Keil_v5\\ARM\\ARMCC\\include\\rw",
-                "d:\\Code\\Robot\\robot4.21 (2)\\STM32F10x_FWLib\\src",
-                "d:\\Code\\Robot\\robot4.21 (2)"
+                "d:\\Code\\Robot\\robot4.22-maxspeed\\STM32F10x_FWLib\\src",
+                "d:\\Code\\Robot\\robot4.22-maxspeed"
             ],
             "defines": [
                 "STM32F10X_HD",
