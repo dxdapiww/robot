@@ -183,6 +183,59 @@ void Lane_Keep_Bwd(void)
 	// stop
 }
 
+// void Go_Stright_Bwd(u8 num)
+// {
+//   // 初始化电机
+//   Motor1_Bwd();
+//   Motor2_Bwd();
+//   speed = Normal;
+
+//   // 确保所有传感器都被读取并更新
+//   Lane_Counter_Bwd_Read();
+
+//   // 延时等待车辆开始向后移动
+//   delay_ms(100);
+
+//   // 确保车辆已经向后移动了一定距离
+//   while (Encoder_Get() < 100);
+
+//   while (num)
+//   {
+//     // 读取传感器
+//     u8 led_num = SensorB[0] + SensorB[1] + SensorB[2] + SensorB[3] + SensorB[4] + SensorB[5] + SensorB[6] + SensorB[7];
+
+//     if (led_num <= 2)
+//     {
+//       // 如果车辆偏离轨道，停止并等待修正
+//       TIM_SetCounter(TIM2, 0);
+//       while (Read_Sensors_Bwd() <= 2);
+//     }
+//     else
+//     {
+//       // 按照轨道行驶
+//       Lane_Keep_Bwd();
+//       if (Encoder_Get() >= 700)
+//       {
+//         // 如果车辆已经行驶到目标位置，减速并等待修正
+//         speed = Slow;
+//         Lane_Keep_Bwd();
+//         while (Read_Sensors_Bwd() <= 2);
+//         speed = Normal;
+
+//         // 重置编码器计数器
+//         TIM_SetCounter(TIM2, 0);
+
+//         // 进入下一个循环
+//         num--;
+//       }
+//     }
+//   }
+
+  // 停止电机
+//   Motor1_Fwd();
+//   Motor2_Fwd();
+// }
+
 void Go_Stright_Fwd(u8 num)
 {
 	Motor1_Fwd();
@@ -213,7 +266,7 @@ void Go_Stright_Fwd(u8 num)
 				Lane_Keep_Fwd();
 				if (Encoder_Get() <= -450) // 3/4 speed 700
 				{
-					// speed = Normal;
+					speed = Normal;
 					break;
 				}
 			}
@@ -261,7 +314,7 @@ void Go_Stright_Bwd(u8 num)
 				Lane_Keep_Fwd();
 				if (Encoder_Get() >= 500) // 3/4 speed 700
 				{
-					// speed = Normal;
+					speed = Normal;
 					break;
 				}
 			}
